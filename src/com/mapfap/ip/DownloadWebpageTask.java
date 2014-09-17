@@ -26,8 +26,13 @@ public class DownloadWebpageTask extends AsyncTask<String, Void, String> {
 
 		@Override
         protected String doInBackground(String... urls) {
-              
-            // params comes from the execute() call: params[0] is the url.
+			
+			AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        	RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget);
+    		rv.setTextViewText(R.id.ip_label, "Loading");
+    		appWidgetManager.updateAppWidget(appWidgetId, rv);
+			
+			
             try {
                 return downloadUrl(urls[0]);
             } catch (IOException e) {
@@ -40,17 +45,13 @@ public class DownloadWebpageTask extends AsyncTask<String, Void, String> {
         protected void onPostExecute(String result) {
         	AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         	RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget);
-    		rv.setTextViewText(R.id.month_label, result);
+    		rv.setTextViewText(R.id.ip_label, result);
     		appWidgetManager.updateAppWidget(appWidgetId, rv);
        }
         
-     // Given a URL, establishes an HttpUrlConnection and retrieves
-    	// the web page content as a InputStream, which it returns as
-    	// a string.
     	private String downloadUrl(String myurl) throws IOException {
     	    InputStream is = null;
-    	    // Only display the first 500 characters of the retrieved
-    	    // web page content.
+    	    // Only display the first 500 characters
     	    int len = 500;
     	        
     	    try {
@@ -60,18 +61,15 @@ public class DownloadWebpageTask extends AsyncTask<String, Void, String> {
     	        conn.setConnectTimeout(15000 /* milliseconds */);
     	        conn.setRequestMethod("GET");
     	        conn.setDoInput(true);
-    	        // Starts the query
+    	        
     	        conn.connect();
     	        int response = conn.getResponseCode();
     	        Log.d("dfv", "The response is: " + response);
     	        is = conn.getInputStream();
 
-    	        // Convert the InputStream into a string
     	        String contentAsString = readIt(is, len);
     	        return contentAsString;
     	        
-    	    // Makes sure that the InputStream is closed after the app is
-    	    // finished using it.
     	    } finally {
     	        if (is != null) {
     	            is.close();
@@ -79,7 +77,6 @@ public class DownloadWebpageTask extends AsyncTask<String, Void, String> {
     	    }
     	}
     	
-    	// Reads an InputStream and converts it to a String.
     	public String readIt(InputStream stream, int len) throws IOException, UnsupportedEncodingException {
     	    Reader reader = null;
     	    reader = new InputStreamReader(stream, "UTF-8");        

@@ -1,5 +1,3 @@
 <resources>
-    <integer name="max_width_short_month_label_dp">240</integer>
-    <integer name="max_height_mini_view_dp">180</integer>
-    <integer name="max_height_mini_view_1_row_dp">120</integer>
+    
 </resources>
