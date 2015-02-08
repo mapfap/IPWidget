@@ -1,0 +1,2 @@
+/Users/mapfap/AndroidStudioProjects/IPWidget/app/build/intermediates/classes/debug
+/Users/mapfap/AndroidStudioProjects/IPWidget/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-4937aa820e528970bd8df47fde7953c2142bf182.jar
