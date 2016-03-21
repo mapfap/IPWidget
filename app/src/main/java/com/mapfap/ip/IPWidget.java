@@ -53,7 +53,7 @@ public class IPWidget extends AppWidgetProvider {
 		RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget);
 		rv.setTextViewText(R.id.ip_label, "WAN IP");
 
-		rv.setOnClickPendingIntent(R.id.reload_button, PendingIntent.getBroadcast(context, 0,
+		rv.setOnClickPendingIntent(R.id.ip_label, PendingIntent.getBroadcast(context, 0,
 				new Intent(context, IPWidget.class).setAction(ACTION_RELOAD), PendingIntent.FLAG_UPDATE_CURRENT));
 
 		appWidgetManager.updateAppWidget(appWidgetId, rv);

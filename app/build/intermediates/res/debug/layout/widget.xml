@@ -6,22 +6,13 @@
         <Button
             android:id="@+id/ip_label"
             style="?android:borderlessButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center|center"
             android:paddingLeft="20dp"
             android:textColor="@color/foreground_full"
             android:textSize="30sp" />
-        	
-        <ImageButton
-            android:id="@+id/reload_button"
-            style="?android:borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:paddingLeft="20dp"
-            android:contentDescription="@string/reload"
-            android:src="@drawable/ic_reload" />
 
 </LinearLayout>
 <!-- From: file:/Users/mapfap/AndroidStudioProjects/IPWidget/app/src/main/res/layout/widget.xml -->

@@ -64,7 +64,7 @@ public class DownloadWebpageTask extends AsyncTask<String, Void, String> {
     	        
     	        conn.connect();
     	        int response = conn.getResponseCode();
-    	        Log.d("dfv", "The response is: " + response);
+    	        Log.d("HTTP Request", "The response is: " + response);
     	        is = conn.getInputStream();
 
     	        String contentAsString = readIt(is, len);
